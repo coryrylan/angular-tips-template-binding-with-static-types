@@ -1,16 +1,29 @@
-import './polyfills';
+import { Component } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { MessageTypes } from './message/message.component';
+import 'zone.js';
 
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  template: `
+    <h1>Angular Tips: Template Binding with Static Types</h1>
 
-import { AppModule } from './app/app.module';
+    <a href="https://coryrylan.com/blog/angular-tips-template-binding-with-static-types">Tutorial at coryrylan.com</a>
 
-platformBrowserDynamic().bootstrapModule(AppModule).then(ref => {
-  // Ensure Angular destroys itself on hot reloads.
-  if (window['ngRef']) {
-    window['ngRef'].destroy();
-  }
-  window['ngRef'] = ref;
+    <br><br>
 
-  // Otherise, log the boot error
-}).catch(err => console.error(err));
+    <app-message [type]="messageTypes.Success">Success: Hello World</app-message>
+
+    <app-message [type]="messageTypes.Warning">Warning: Hello World</app-message>
+
+    <app-message [type]="messageTypes.Error">Error: Hello World</app-message>
+
+    <app-message>Hello World</app-message>
+  `,
+})
+export class App {
+  messageTypes = MessageTypes;
+}
+
+bootstrapApplication(App);

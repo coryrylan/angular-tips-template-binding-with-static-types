@@ -8,6 +8,7 @@ export enum MessageTypes {
 }
 
 @Component({
+  standalone: true,
   selector: 'app-message',
   templateUrl: './message.component.html',
   styleUrls: [ './message.component.css' ]
