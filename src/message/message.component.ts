@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 export enum MessageTypes {
   Standard,
@@ -8,8 +9,9 @@ export enum MessageTypes {
 }
 
 @Component({
-  standalone: true,
   selector: 'app-message',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './message.component.html',
   styleUrls: [ './message.component.css' ]
 })
