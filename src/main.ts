@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { MessageTypes } from './message/message.component';
+import { MessageComponent, MessageTypes } from './message/message.component';
 import 'zone.js';
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports: [MessageComponent],
   template: `
     <h1>Angular Tips: Template Binding with Static Types</h1>
 
